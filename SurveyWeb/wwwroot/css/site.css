@@ -1,7 +1,6 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
-    padding-top: 50px;
     padding-bottom: 20px;
 }
 
@@ -34,4 +33,34 @@ body {
     .carousel-caption {
         display: none;
     }
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*override Bootstrap behavior Navbar-*/
+.navbar {
+    margin-bottom: 20px;
+}
+
+.footer {
+    margin-top: 580px;
+}
+
+#login-card {
+    margin-top: 60px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    border-radius: 20px !important;
 }
