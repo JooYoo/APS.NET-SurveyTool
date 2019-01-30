@@ -20,7 +20,7 @@ namespace SurveyWeb.Models
             return new MySqlConnection(ConnectionString);
         }
 
-        public List<User> GetAllAlbums()
+        public List<User> GetAllUsers()
         {
             List<User> list = new List<User>();
 

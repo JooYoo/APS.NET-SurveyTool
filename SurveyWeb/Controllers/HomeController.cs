@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using SurveyWeb.Models;
 
@@ -13,6 +9,7 @@ namespace SurveyWeb.Controllers
 
         public IActionResult Index()
         {
+            ViewData["isOk"] = null;
             return View();
         }
 
@@ -22,8 +19,18 @@ namespace SurveyWeb.Controllers
             UserContext context = HttpContext.RequestServices.GetService(typeof(SurveyWeb.Models.UserContext)) as UserContext;
             //return View(context.GetAllAlbums());
 
-            var account = accountTx;
-            var pw = passwordTx;
+            var users = context.GetAllUsers();
+            var loginUser = users.Find(x => x.Email == accountTx && x.Password == passwordTx);
+
+            if (loginUser != null)  // succes
+            {
+                RedirectToAction("About");
+            }
+            else // failed
+            {
+                ViewData["isOk"] = false;
+            }
+
             return View();
         }
 
