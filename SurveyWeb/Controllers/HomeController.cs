@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using SurveyWeb.Models;
 
@@ -6,6 +7,8 @@ namespace SurveyWeb.Controllers
 {
     public class HomeController : Controller
     {
+        private static List<User> Users = new List<User>();
+        private static List<Survey> Surveys = new List<Survey>();
 
         public IActionResult Index()
         {
@@ -19,12 +22,12 @@ namespace SurveyWeb.Controllers
             UserContext context = HttpContext.RequestServices.GetService(typeof(SurveyWeb.Models.UserContext)) as UserContext;
             //return View(context.GetAllAlbums());
 
-            var users = context.GetAllUsers();
-            var loginUser = users.Find(x => x.Email == accountTx && x.Password == passwordTx);
+            Users = context.GetAllUsers();
+            var loginUser = Users.Find(x => x.Email == accountTx && x.Password == passwordTx);
 
             if (loginUser != null)  // succes
             {
-                RedirectToAction("About");
+                return RedirectToAction("About");
             }
             else // failed
             {
@@ -37,6 +40,17 @@ namespace SurveyWeb.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
+
+            SurveyContext context = HttpContext.RequestServices.GetService(typeof(SurveyWeb.Models.SurveyContext)) as SurveyContext;
+            Surveys = context.GetAllSurvey();
+
+            return View(Surveys);
+        }
+
+        [HttpPost]
+        public IActionResult About(string id)
+        {
+            var targetId = id;
 
             return View();
         }
