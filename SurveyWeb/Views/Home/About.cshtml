@@ -12,67 +12,46 @@
     <p>Somewhere over the rainbow, Mo is legend.</p>
 </div>
 
-@*<table class="table">
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>CreationDate</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayTextFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayTextFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayTextFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayTextFor(modelItem => item.CreationDate)
-                </td>
-            </tr>
-
-        }
-    </table>*@
 
 <span class="oi oi-icon-name" title="icon name" aria-hidden="true"></span>
 
-@using (Html.BeginForm("About","Home"))
-{
-    <div class="container-fluid">
-        <div class="row">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="card-deck">
             @foreach (var item in Model)
             {
+
                 <div class="col-3">
+                    @using (Html.BeginForm("About", "Home"))
+                    {
 
-                    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                        <div class="card-header">@Html.DisplayTextFor(modelItem => item.CreationDate)</div>
-                        <div class="card-body">
-                            <h5 class="card-title">@Html.DisplayTextFor(modelItem => item.Title)</h5>
-                            <p class="card-text">@Html.DisplayTextFor(modelItem => item.Description)</p>
-                        </div>
-                        <div class="card-footer text-black-50 bg-light border-light">
-                            <div class="row">
-                                <div class="text-left col-4">
-                                    <button type="submit" value="item.Id" class="btn btn-dark">Start</button>
-                                    @* @Html.DisplayTextFor(modelItem => item.CreationDate)*@
-                                    @Html.ActionLink("id","About","Home", item.Id)
-                                </div>
+                        <input name="id" value="@item.Id" style="visibility:hidden" />
+                        <div class="card text-white bg-dark mb-3" style="max-width: 22rem;" type="submit" value="@item.Id">
+                            <div class="card-header">
+                                @Html.DisplayTextFor(modelItem => item.CreationDate)
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">@Html.DisplayTextFor(modelItem => item.Title)</h5>
+                                <p class="card-text">@Html.DisplayTextFor(modelItem => item.Description)</p>
+                            </div>
+                            <div class="card-footer text-black-50 bg-dark">
+                                <div class="row">
+                                    <div class="text-left col-4">
+                                    </div>
 
-                                <div class="text-right col-8">
-                                    @*@Html.DisplayTextFor(modelItem => item.Id)*@
+                                    <div class="text-right col-8">
+                                        <button type="submit" value="@item.Id" class="btn btn-outline-light">Start</button>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                    }
                 </div>
             }
         </div>
     </div>
+</div>
 
-}

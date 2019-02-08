@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using SurveyWeb.Models;
@@ -9,6 +10,8 @@ namespace SurveyWeb.Controllers
     {
         private static List<User> Users = new List<User>();
         private static List<Survey> Surveys = new List<Survey>();
+        private static string surveyId = "";
+        private static List<SurveyQuestion> surveyQuestions = new List<SurveyQuestion>();
 
         public IActionResult Index()
         {
@@ -50,16 +53,23 @@ namespace SurveyWeb.Controllers
         [HttpPost]
         public IActionResult About(string id)
         {
-            var targetId = id;
+            surveyId = id;
 
-            return View();
+            return RedirectToAction("Contact");
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Go to Survey ID: " + surveyId;
 
-            return View();
+            // get all surveyQuestions
+            SurveyQuestionContext context = HttpContext.RequestServices.GetService(typeof(SurveyWeb.Models.SurveyQuestionContext)) as SurveyQuestionContext;
+            surveyQuestions = context.GetAllSurveyQuestion();
+
+            // get the Survey i need
+            var targetSurveyQuestions = surveyQuestions.FindAll(x => x.SurveyId == Convert.ToInt32(surveyId));
+
+            return View(targetSurveyQuestions);
         }
 
         public IActionResult Privacy()

@@ -8,6 +8,7 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     </environment>
+       
     <link rel="stylesheet" href="~/css/site.css" />
 
 </head>
@@ -41,9 +42,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
 
             <ul class="navbar-nav">
-                <a>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-item nav-link" })</a>
+                @*<a>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-item nav-link" })</a>*@
                 @*<a>@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-item nav-link" })</a>
-                <a>@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-item nav-link" })</a>*@
+                    <a>@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-item nav-link" })</a>*@
             </ul>
         </div>
     </nav>
@@ -51,12 +52,19 @@
 
     <div class="container body-content">
         @RenderBody()
-      
+
         <footer>
             @*<hr/>
-            <p>&copy; 2019 - SurveyWeb</p>*@
+                <p>&copy; 2019 - SurveyWeb</p>*@
         </footer>
     </div>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/popper.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
 
 
     @RenderSection("Scripts", required: false)
