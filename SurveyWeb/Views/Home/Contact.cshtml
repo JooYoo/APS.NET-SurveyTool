@@ -17,7 +17,7 @@
         <tr>
             <td>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_@item.Id">
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal_@item.Id">
                     @Html.DisplayTextFor(modelItem => item.Id)
                 </button>
             </td>
@@ -35,7 +35,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLongTitle">
-                            Question: @Html.DisplayTextFor(modelItem => item.Id)
+                            <span>Q</span>@Html.DisplayTextFor(modelItem => item.Id)
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -43,14 +43,22 @@
                     </div>
                     <div class="modal-body">
                         @Html.DisplayTextFor(modelItem => item.Question)
-                    </div>
-                    <div class="modal-footer">
-                        @*<button type="button" class="btn btn-primary">Done</button>*@
-                        @foreach (var choice in item.Choices)
-                        {
-                        <div>@Html.DisplayTextFor(modelItem => choice.Choice)</div>
-                        }
 
+                        <br />
+
+                        @for (int i = 0; i < item.Choices.Count; i++)
+                        {
+
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id=@item.Choices[i].Id name="customRadio" class="custom-control-input">
+                                <label class="custom-control-label" for=@item.Choices[i].Id>@Html.DisplayTextFor(modelItem => item.Choices[i].Choice)</label>
+                            </div>
+
+                        }
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
             </div>
