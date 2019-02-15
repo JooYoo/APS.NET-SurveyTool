@@ -110,8 +110,6 @@ C:\Users\zhuyu\Desktop\APS.NET-SurveyTool\SurveyWeb\obj\Debug\netcoreapp2.1\Surv
 C:\Users\zhuyu\Desktop\APS.NET-SurveyTool\SurveyWeb\obj\Debug\netcoreapp2.1\SurveyWeb.TagHelpers.input.cache
 C:\Users\zhuyu\Desktop\APS.NET-SurveyTool\SurveyWeb\obj\Debug\netcoreapp2.1\SurveyWeb.TagHelpers.output.cache
 C:\Users\zhuyu\Desktop\APS.NET-SurveyTool\SurveyWeb\obj\Debug\netcoreapp2.1\SurveyWeb.RazorCoreGenerate.cache
-C:\Users\zhuyu\Desktop\APS.NET-SurveyTool\SurveyWeb\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
-C:\Users\zhuyu\Desktop\APS.NET-SurveyTool\SurveyWeb\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
 C:\Users\zhuyu\Desktop\APS.NET-SurveyTool\SurveyWeb\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
 C:\Users\zhuyu\Desktop\APS.NET-SurveyTool\SurveyWeb\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
 C:\Users\zhuyu\Desktop\APS.NET-SurveyTool\SurveyWeb\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
@@ -126,3 +124,5 @@ C:\Users\zhuyu\Desktop\APS.NET-SurveyTool\SurveyWeb\obj\Debug\netcoreapp2.1\Surv
 C:\Users\zhuyu\Desktop\APS.NET-SurveyTool\SurveyWeb\obj\Debug\netcoreapp2.1\SurveyWeb.dll
 C:\Users\zhuyu\Desktop\APS.NET-SurveyTool\SurveyWeb\obj\Debug\netcoreapp2.1\SurveyWeb.pdb
 C:\Users\zhuyu\Desktop\APS.NET-SurveyTool\SurveyWeb\obj\Debug\netcoreapp2.1\SurveyWeb.csproj.CopyComplete
+C:\Users\zhuyu\Desktop\APS.NET-SurveyTool\SurveyWeb\obj\Debug\netcoreapp2.1\Razor\Views\Home\Surveylist.g.cshtml.cs
+C:\Users\zhuyu\Desktop\APS.NET-SurveyTool\SurveyWeb\obj\Debug\netcoreapp2.1\Razor\Views\Home\Questionlist.g.cshtml.cs

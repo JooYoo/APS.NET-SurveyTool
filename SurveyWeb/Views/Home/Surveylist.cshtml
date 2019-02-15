@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<SurveyWeb.Models.Survey>
 @{
-    ViewData["Title"] = "About";
+    ViewData["Title"] = "Surveylist";
 }
 @*<h2>@ViewData["Title"]</h2>
     <h3>@ViewData["Message"]</h3>*@
@@ -22,8 +22,8 @@
             @foreach (var item in Model)
             {
 
-                <div class="col-3">
-                    @using (Html.BeginForm("About", "Home"))
+                <div class="col-4">
+                    @using (Html.BeginForm("Surveylist", "Home"))
                     {
 
                         <input name="id" value="@item.Id" style="visibility:hidden" />

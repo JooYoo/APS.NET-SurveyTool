@@ -31,7 +31,7 @@ namespace SurveyWeb.Controllers
 
             if (loginUser != null)  // succes
             {
-                return RedirectToAction("About");
+                return RedirectToAction("Surveylist");
             }
             else // failed
             {
@@ -41,7 +41,7 @@ namespace SurveyWeb.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Surveylist()
         {
             ViewData["Message"] = "Your application description page.";
 
@@ -52,14 +52,14 @@ namespace SurveyWeb.Controllers
         }
 
         [HttpPost]
-        public IActionResult About(string id)
+        public IActionResult Surveylist(string id)
         {
             surveyId = id;
 
-            return RedirectToAction("Contact");
+            return RedirectToAction("Questionlist");
         }
 
-        public IActionResult Contact()
+        public IActionResult Questionlist()
         {
             ViewData["Message"] = "Go to Survey ID: " + surveyId;
 
