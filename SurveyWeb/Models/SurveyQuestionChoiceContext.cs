@@ -2,14 +2,13 @@
 using System;
 using System.Collections.Generic;
 
-
 namespace SurveyWeb.Models
 {
-    public class SurveyQuestionContext
+    public class SurveyQuestionChoiceContext
     {
         public string ConnectionString { get; set; }
 
-        public SurveyQuestionContext(string connectionString)
+        public SurveyQuestionChoiceContext(string connectionString)
         {
             this.ConnectionString = connectionString;
         }
@@ -19,26 +18,25 @@ namespace SurveyWeb.Models
             return new MySqlConnection(ConnectionString);
         }
 
-        public List<SurveyQuestion> GetAllSurveyQuestion()
+
+        public List<SurveyQuestionChoice> GetAllSurveyQuestionChoice()
         {
-            var list = new List<SurveyQuestion>();
+            var list = new List<SurveyQuestionChoice>();
 
             using (MySqlConnection conn = GetConnection())
             {
                 conn.Open();
-                var cmd = new MySqlCommand("select * from surveyquestion", conn);
+                var cmd = new MySqlCommand("select * from surveyquestionchoice", conn);
 
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        list.Add(new SurveyQuestion()
+                        list.Add(new SurveyQuestionChoice()
                         {
                             Id = Convert.ToInt32(reader["ID"]),
-                            SurveyId = Convert.ToInt32(reader["Survey_Id"]),
-                            Question =  reader["Question"].ToString(),
-                            Description = reader["Description"].ToString(),
-                            Type = reader["Type"].ToString()
+                            SurveyQuestionId = Convert.ToInt32(reader["SurveyQuestion_ID"]),
+                            Choice = reader["Choice"].ToString()
                         });
                     }
                 }

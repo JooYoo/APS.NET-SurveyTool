@@ -11914,11 +11914,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\zhuyu\\Desktop\\SurveyWeb\\SurveyWeb\\SurveyWeb.csproj",
+      "projectUniqueName": "C:\\Users\\zhuyu\\Desktop\\APS.NET-SurveyTool\\SurveyWeb\\SurveyWeb.csproj",
       "projectName": "SurveyWeb",
-      "projectPath": "C:\\Users\\zhuyu\\Desktop\\SurveyWeb\\SurveyWeb\\SurveyWeb.csproj",
+      "projectPath": "C:\\Users\\zhuyu\\Desktop\\APS.NET-SurveyTool\\SurveyWeb\\SurveyWeb.csproj",
       "packagesPath": "C:\\Users\\zhuyu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\zhuyu\\Desktop\\SurveyWeb\\SurveyWeb\\obj\\",
+      "outputPath": "C:\\Users\\zhuyu\\Desktop\\APS.NET-SurveyTool\\SurveyWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

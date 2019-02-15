@@ -1,13 +1,9 @@
 ﻿@model IEnumerable<SurveyWeb.Models.SurveyQuestion>
 
+
 @{
     ViewData["Title"] = "Contact";
 }
-@*<h2>@ViewData["Title"]</h2>*@
-@*<h3>@ViewData["Message"]</h3>*@
-
-
-
 
 <table class="table">
     <tr>
@@ -17,10 +13,6 @@
     </tr>
     @foreach (var item in Model)
     {
-
-       
-
-
 
         <tr>
             <td>
@@ -53,7 +45,12 @@
                         @Html.DisplayTextFor(modelItem => item.Question)
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Done</button>
+                        @*<button type="button" class="btn btn-primary">Done</button>*@
+                        @foreach (var choice in item.Choices)
+                        {
+                        <div>@Html.DisplayTextFor(modelItem => choice.Choice)</div>
+                        }
+
                     </div>
                 </div>
             </div>

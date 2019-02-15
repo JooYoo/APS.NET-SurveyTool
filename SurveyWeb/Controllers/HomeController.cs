@@ -12,6 +12,7 @@ namespace SurveyWeb.Controllers
         private static List<Survey> Surveys = new List<Survey>();
         private static string surveyId = "";
         private static List<SurveyQuestion> surveyQuestions = new List<SurveyQuestion>();
+        private static List<SurveyQuestionChoice> surveyQuestionChoices = new List<SurveyQuestionChoice>();
 
         public IActionResult Index()
         {
@@ -66,11 +67,25 @@ namespace SurveyWeb.Controllers
             SurveyQuestionContext context = HttpContext.RequestServices.GetService(typeof(SurveyWeb.Models.SurveyQuestionContext)) as SurveyQuestionContext;
             surveyQuestions = context.GetAllSurveyQuestion();
 
+            // get all surveyQuestionChoices
+            SurveyQuestionChoiceContext choiceContext = HttpContext.RequestServices.GetService(typeof(SurveyWeb.Models.SurveyQuestionChoiceContext)) as SurveyQuestionChoiceContext;
+            surveyQuestionChoices = choiceContext.GetAllSurveyQuestionChoice();
+
             // get the Survey i need
             var targetSurveyQuestions = surveyQuestions.FindAll(x => x.SurveyId == Convert.ToInt32(surveyId));
 
+            // add the choices to question
+            foreach (var question in targetSurveyQuestions)
+            {
+               question.Choices =  surveyQuestionChoices.FindAll(x => x.SurveyQuestionId == question.Id);
+            }
+
+            var test = targetSurveyQuestions;
+
             return View(targetSurveyQuestions);
         }
+
+
 
         public IActionResult Privacy()
         {
