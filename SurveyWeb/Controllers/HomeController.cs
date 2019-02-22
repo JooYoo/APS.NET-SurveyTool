@@ -9,6 +9,7 @@ namespace SurveyWeb.Controllers
     public class HomeController : Controller
     {
         private static List<User> Users = new List<User>();
+        private static User loginUser;
         private static List<Survey> Surveys = new List<Survey>();
         private static string surveyId = "";
         private static List<SurveyQuestion> surveyQuestions = new List<SurveyQuestion>();
@@ -16,10 +17,9 @@ namespace SurveyWeb.Controllers
 
         public IActionResult Index()
         {
-            ViewData["isOk"] = null;
+           
             return View();
         }
-
         [HttpPost]
         public IActionResult Index(string accountTx, string passwordTx)
         {
@@ -27,7 +27,7 @@ namespace SurveyWeb.Controllers
             //return View(context.GetAllAlbums());
 
             Users = context.GetAllUsers();
-            var loginUser = Users.Find(x => x.Email == accountTx && x.Password == passwordTx);
+            loginUser = Users.Find(x => x.Email == accountTx && x.Password == passwordTx);
 
             if (loginUser != null)  // succes
             {
@@ -50,11 +50,16 @@ namespace SurveyWeb.Controllers
 
             return View(Surveys);
         }
-
         [HttpPost]
         public IActionResult Surveylist(string id)
         {
             surveyId = id;
+
+            // insert SurveyPaticipate
+            //SurveyParticipationContext context = HttpContext.RequestServices.GetService(typeof(SurveyWeb.Models.SurveyParticipationContext)) as SurveyParticipationContext;
+            //var newPaticipate = new SurveyParticipation { User_ID = loginUser.Id, Survey_ID = Convert.ToInt32(surveyId), ParticipationDate= DateTime.Now.ToString("yyyy-MM-dd"), ID=0}; 
+            //context.InsertParticipation(newPaticipate);
+            //var testGetall = context.GetAllParticipations();
 
             return RedirectToAction("Questionlist");
         }
@@ -84,6 +89,11 @@ namespace SurveyWeb.Controllers
 
             return View(targetSurveyQuestions);
         }
+        //[HttpPost]
+        //public IActionResult Questionlist()
+        //{
+
+        //}
 
 
 

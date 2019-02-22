@@ -37,6 +37,7 @@ namespace SurveyWeb
             services.Add(new ServiceDescriptor(typeof(UserContext), new UserContext(Configuration.GetConnectionString("DefaultConnection"))));
             services.Add(new ServiceDescriptor(typeof(SurveyContext), new SurveyContext(Configuration.GetConnectionString("DefaultConnection"))));
             services.Add(new ServiceDescriptor(typeof(SurveyQuestionContext), new SurveyQuestionContext(Configuration.GetConnectionString("DefaultConnection"))));
+            services.Add(new ServiceDescriptor(typeof(SurveyParticipationContext), new SurveyParticipationContext(Configuration.GetConnectionString("DefaultConnection"))));
             services.Add(new ServiceDescriptor(typeof(SurveyQuestionChoiceContext), new SurveyQuestionChoiceContext(Configuration.GetConnectionString("DefaultConnection"))));
         }
 
